@@ -9,7 +9,6 @@ class ApiApplicationTests {
 	@Test
 	void main() {
 		ApiApplication.main(new String[] {});
-
 	}
 
 }
