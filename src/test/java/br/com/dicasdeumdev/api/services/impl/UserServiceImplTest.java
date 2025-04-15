@@ -171,7 +171,7 @@ class UserServiceImplTest {
         when(repository.findById(anyInt())).thenReturn(optionalUser);
         doNothing().when(repository).deleteById(optionalUser.get().getId());
         service.delete(ID);
-        verify(repository, times(2)).deleteById(optionalUser.get().getId());
+        verify(repository, times(1)).deleteById(optionalUser.get().getId());
 
     }
 
@@ -184,6 +184,7 @@ class UserServiceImplTest {
             service.delete(ID);
         }catch (ObjectNotFoundException e) {
             assertEquals(ObjectNotFoundException.class, e.getClass());
+            assertEquals("Usuário nao encontrado", e.getMessage());
         }
 
     }
